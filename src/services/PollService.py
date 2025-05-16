@@ -47,8 +47,8 @@ class PollService(Observable):
         # Registrar el voto
         self.poll_repo.add_vote(poll_id, username, opcion)
 
-        # Generar token NFT
-        self.nft_service.generate_token(username, poll_id, opcion, int(time.time()))
+        # Generar token NFT usando mint_token
+        self.nft_service.mint_token(username, poll_id, opcion)
         return True
 
     def close_poll(self, poll_id: str):
